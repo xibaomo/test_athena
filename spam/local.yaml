@@ -8,8 +8,8 @@ GENERAL:
 
     # Log levels: 0 - LOG_FATAL
     #             1 - LOG_ERROR
-    #             2 - LOG_INFO
-    #             3 - LOG_DEBUG
+    #              2 - LOG_INFO
+    #              3 - LOG_DEBUG
     LOG_LEVEL: 2
 
     # Format of gauge file
@@ -19,7 +19,7 @@ GENERAL:
     ESTIMATE_ACCURACV: 1
 
     # Model selector, crossval idation is default
-    ENABLE_MODEL_SELECTOR: false 
+    ENABLE_MODEL_SELECTOR: false
 
     # Maximum allowed number of to-be-trained models
     MAX_NUM_MODELS: 3
@@ -28,18 +28,21 @@ GENERAL:
     MIN_NUM_MODELS: 2
 
 # Machine-learning engine
+
 ML_ENGINE_CORE:
     # Machine-learning engine type:
     # 0 - support vector machine (SVM)
     # 1 - decision tree (DCT)
-    ENGINE_CORE_TYPE: 0
+    # 2 - random forest
+    # 3 - DNN
+    ENGINE_CORE_TYPE: 2
     SVM:
         # rbf, linear, poly, sigmoid, precomputed
-        KERNEL: 1 i near
-        C: 1.
+        KERNEL: rbf
+        C: 100.
         GAMMA: auto
         # used by poly & sigmoid
-        COEFO: 0.
+        COEF0: 0.
         # only used by poly
         DEGREE: 3
     DCT:
@@ -51,10 +54,15 @@ ML_ENGINE_CORE:
         N_ESTIMATORS: 10
         CRITERION: entropy
     DNN:
-        TRAIN_STEPS: 5000
-        LAVER_NODES: [10,20,10]
-        N_CLASSES: 2
-        N_ESTIMATORS: 3
+        EPOCHS: 1000
+        NEURONS: [10,20,10]
+        ACTIVATION: ['relu','relu','relu']
+        DROPOUT_RATE: [0.2,0.2,0.2]
+        BATCH_SIZE: 100
+        ALGORITHM: SGD
+        WEIGHT_INIT: uniform
+        LEARN_RATE: 0.01
+        MOMENTUM: 0.1 #ONLY USED WHEN ALGORITHM == SGD
 
 FEATURE_EXTRACTOR:
     # Type of feature extractor:
@@ -84,11 +92,18 @@ MODEL_SELECTOR:
     MODEL_4:
         ENABLED: false
         MODEL_NAME: DNN
-        TRAIN_STEPS: 5000
-        LAYER_NODES: [10,20,10]
-        N_ESTIMATORS: 3
-        N_CLASSES: 2
-
+        
+        RANDOM_SEED: -1 # -1 means no seed
+        NEURONS: [10,20,10]
+        ACTIVATION: ['softmax','softplus','softsign','relu','tanh','sigmoid','hard_sigmoid','linear']
+        EPOCHS: 100,1000,10 # START,STOP,NUM
+        BATCH_SIZE: 10,200,10
+        DROPOUT_RATE: 0.0,0.9,10
+        ALGORITHM: ['SGD','RMSprop','Adagrad','Adadelta','Adam','Adamax','Nadam']
+        WEIGHT_INIT: ['uniform','lecun_uniform','normal','zero','glorot_normal','glorot_uniform','he_normal','he_uniform']
+        LEARN_RATE: 0.001,0.3,10
+        MOMENTUM: 0.,0.9,10 #ONLY USED WHEN ALGORITHM == SGD
+        
 ########################### App config starts here ###########################
 SPM:
     # Type of input data
@@ -96,5 +111,5 @@ SPM:
     INPUT_TYPE: 0
 
     # Used if INPUT_TYPE == 0
-    TRAIN_DATA_DIR: ./
-    TEST_DATA_DIR: ./
+    TRAIN_DATA_DIR: ./train-mails
+    TEST_DATA_DIR: ./test-mails

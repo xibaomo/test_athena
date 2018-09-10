@@ -35,7 +35,7 @@ ML_ENGINE_CORE:
     # 1 - decision tree (DCT)
     # 2 - random forest
     # 3 - DNN
-    ENGINE_CORE_TYPE: 2
+    ENGINE_CORE_TYPE: 3
     SVM:
         # rbf, linear, poly, sigmoid, precomputed
         KERNEL: rbf

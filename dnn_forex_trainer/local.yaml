@@ -1,0 +1,86 @@
+Project: athena
+Version: "0.0.1"
+
+GENERAL:
+    # Applications:
+    #               99 - Spam mail filter
+    #               0  - Forex tick sampler
+    #               1  - Forex trainer
+    APPLICATION: 1
+
+    # Log levels: 0 - LOG_FATAL
+    #             1 - LOG_ERROR
+    #              2 - LOG_INFO
+    #              3 - LOG_DEBUG
+    LOG_LEVEL: 2
+
+    # Format of gauge file
+    GAUGE_FILE_FORMAT: csv
+
+    # Model selector, crossval idation is default
+    ENABLE_MODEL_SELECTOR: true
+
+    # Maximum allowed number of to-be-trained models
+    MAX_NUM_MODELS: 2
+
+    # Minimum number of product models
+    MIN_NUM_MODELS: 1
+
+# Machine-learning engine
+
+ML_ENGINE_CORE:
+    # Machine-learning engine type:
+    # 0 - support vector machine (SVM)
+    # 1 - decision tree (DCT)
+    # 2 - random forest
+    # 3 - DNN
+    ENGINE_CORE_TYPE: 3
+    SVM:
+        # rbf, linear, poly, sigmoid, precomputed
+        KERNEL: rbf
+        C: 100.
+        GAMMA: auto
+        # used by poly & sigmoid
+        COEF0: 0.
+        # only used by poly
+        DEGREE: 3
+    DCT:
+        MIN_SAMPLE_SPLIT: 10
+        # gini or entropy
+        CRITERION: entropy
+    RMF: # Random Forest
+        MIN_SAMPLES_SPLIT: 2
+        N_ESTIMATORS: 10
+        CRITERION: entropy
+    DNN:
+        EPOCHS: 500
+        BATCH_SIZE: 500
+        NEURONS: [100]
+        ACTIVATION: ['tanh']
+        DROPOUT_RATE: [0.0]
+        ALGORITHM: adam
+        WEIGHT_INIT: uniform
+        LEARN_RATE: 0.01
+        MOMENTUM: 0.1 #ONLY USED WHEN ALGORITHM == SGD
+        VERBOSE: 2
+
+FEATURE_EXTRACTOR:
+    # Type of feature extractor:
+    # 99 - word count
+    EXTRACTOR_TVPE: 0
+
+       
+########################### App config starts here ###########################
+FXT: # Forex trainer
+    TRAINER_TYPE: 1
+    FEATURE_EXTRACTOR:
+        #TICK_FILE: EURUSD_sell.csv
+        TICK_FILE: EURUSD_buy.csv
+        TEST_SIZE: 500
+        SAMPLE_RATE: 30 # sec
+
+        FEATURE_LIST: ['DMA','RSI']
+        FAST_PERIOD: 200
+        SLOW_PERIOD: 80
+        RSI_PERIOD: 80
+        SIGNAL_PERIOD: 9

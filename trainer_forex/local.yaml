@@ -17,8 +17,6 @@ GENERAL:
     # Format of gauge file
     GAUGE_FILE_FORMAT: csv
 
-    # 1/0: turn on/off
-    ESTIMATE_ACCURACV: 1
 
     # Model selector, crossval idation is default
     ENABLE_MODEL_SELECTOR: true
@@ -109,8 +107,8 @@ MODEL_SELECTOR:
 ########################### App config starts here ###########################
 FXT: # Forex trainer
    FEATURE_EXTRACTOR:
-       TICK_FILE: EURUSD_sell.csv
-       #TICK_FILE: EURUSD_buy.csv
+       #TICK_FILE: EURUSD_sell.csv
+       TICK_FILE: EURUSD_buy.csv
        TEST_SIZE: 200
        SAMPLE_RATE: 30 # sec
 

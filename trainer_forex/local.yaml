@@ -24,7 +24,7 @@ GENERAL:
     ENABLE_MODEL_SELECTOR: true
 
     # Maximum allowed number of to-be-trained models
-    MAX_NUM_MODELS: 3
+    MAX_NUM_MODELS: 2
 
     # Minimum number of product models
     MIN_NUM_MODELS: 1
@@ -78,15 +78,15 @@ MODEL_SELECTOR:
     N_JOBS: 8
 ########################### Classifiers ###########################
     MODEL_1:
-        ENABLED: false
+        #ENABLED: true
         MODEL_NAME: SVM
         KERNEL_LIST: [rbf]
     MODEL_2:
-        ENABLED: true
+        #ENABLED: true
         MODEL_NAME: DCT # Decision tree
         SAMPLE_SPLIT: 4,200,100 # min,max,num
     MODEL_3:
-        #ENABLED: true
+        ENABLED: true
         MODEL_NAME: RMF # Random forest
         N_ESTIMATORS: 10,200,10  # min,max,num
         CRITERION: [gini,entropy]
@@ -109,8 +109,8 @@ MODEL_SELECTOR:
 ########################### App config starts here ###########################
 FXT: # Forex trainer
    FEATURE_EXTRACTOR:
-       #TICK_FILE: EURUSD_sell.csv
-       TICK_FILE: EURUSD_buy.csv
+       TICK_FILE: EURUSD_sell.csv
+       #TICK_FILE: EURUSD_buy.csv
        TEST_SIZE: 200
        SAMPLE_RATE: 30 # sec
 

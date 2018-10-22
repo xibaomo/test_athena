@@ -109,11 +109,9 @@ FXT: # Forex trainer
    FEATURE_EXTRACTOR:
        #TICK_FILE: EURUSD_sell.csv
        TICK_FILE: EURUSD_buy.csv
-       TEST_SIZE: 200
+       TEST_SIZE: 500
        SAMPLE_RATE: 30 # sec
 
-       FEATURE_LIST: ['DMA','RSI']
-       FAST_PERIOD: 200
-       SLOW_PERIOD: 80
-       RSI_PERIOD: 80
-       SIGNAL_PERIOD: 9
+       #FEATURE_LIST: ['DMA','RSI','MACD']
+       FAST_PERIOD: 400
+       SLOW_PERIOD: 150

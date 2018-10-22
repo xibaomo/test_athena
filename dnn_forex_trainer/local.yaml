@@ -74,12 +74,12 @@ FEATURE_EXTRACTOR:
 FXT: # Forex trainer
     TRAINER_TYPE: 1
     FEATURE_EXTRACTOR:
-        #TICK_FILE: EURUSD_sell.csv
-        TICK_FILE: EURUSD_buy.csv
+        TICK_FILE: EURUSD_sell.csv
+        #TICK_FILE: EURUSD_buy.csv
         TEST_SIZE: 500
         SAMPLE_RATE: 30 # sec
 
-        FEATURE_LIST: ['DMA','RSI']
+        #FEATURE_LIST: ['DMA','RSI']
         FAST_PERIOD: 200
         SLOW_PERIOD: 80
         RSI_PERIOD: 80

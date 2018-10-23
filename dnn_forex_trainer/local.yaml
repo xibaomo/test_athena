@@ -55,9 +55,9 @@ ML_ENGINE_CORE:
     DNN:
         EPOCHS: 500
         BATCH_SIZE: 500
-        NEURONS: [100]
-        ACTIVATION: ['tanh']
-        DROPOUT_RATE: [0.0]
+        NEURONS: [8,5,3]
+        ACTIVATION: ['relu','relu','relu']
+        DROPOUT_RATE: [0.1,0.1,0.1]
         ALGORITHM: adam
         WEIGHT_INIT: uniform
         LEARN_RATE: 0.01
@@ -80,7 +80,5 @@ FXT: # Forex trainer
         SAMPLE_RATE: 30 # sec
 
         #FEATURE_LIST: ['DMA','RSI']
-        FAST_PERIOD: 200
-        SLOW_PERIOD: 80
-        RSI_PERIOD: 80
-        SIGNAL_PERIOD: 9
+        FAST_PERIOD: 400
+        SLOW_PERIOD: 150

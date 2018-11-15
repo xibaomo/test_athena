@@ -1,0 +1,11 @@
+11-15-2018 14:39:05<info> Athena api-server starts
+11-15-2018 14:39:05<info> Bind successful. Port: 
+11-15-2018 14:39:05<info> 26566
+11-15-2018 14:39:06<error> Failed to create engine core
+11-15-2018 14:39:06<info> ML engine core created from eurusd_buy_1.flt
+11-15-2018 14:39:06<error> Failed to create engine core
+11-15-2018 14:39:06<info> ML engine core created from eurusd_buy_2.flt
+11-15-2018 14:39:06<error> Failed to create engine core
+11-15-2018 14:39:06<info> ML engine core created from eurusd_sell_1.flt
+11-15-2018 14:39:06<error> Failed to create engine core
+11-15-2018 14:39:06<info> ML engine core created from eurusd_sell_2.flt

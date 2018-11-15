@@ -74,6 +74,8 @@ MODEL_SELECTOR:
     CV_FOLD: 5
     # number of threads running in parallel
     N_JOBS: 8
+
+    SAVE_MODEL_PREFIX: "fx_rf_"
 ########################### Classifiers ###########################
     MODEL_1:
         #ENABLED: true
@@ -107,11 +109,11 @@ MODEL_SELECTOR:
 ########################### App config starts here ###########################
 FXT: # Forex trainer
    FEATURE_EXTRACTOR:
-       TICK_FILE: EURUSD_sell.csv
-       #TICK_FILE: EURUSD_buy.csv
+       #TICK_FILE: EURUSD_sell.csv
+       TICK_FILE: EURUSD_buy.csv
        TEST_SIZE: 500
        SAMPLE_RATE: 30 # sec
 
        #FEATURE_LIST: ['DMA','RSI','MACD']
-       FAST_PERIOD: 400
+       FAST_PERIOD: 500
        SLOW_PERIOD: 150

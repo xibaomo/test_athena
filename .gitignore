@@ -6,4 +6,4 @@ log*
 output*
 release
 debug
-features.csv
+*.csv

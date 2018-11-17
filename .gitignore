@@ -2,6 +2,8 @@
 *.swp
 *.nfs*
 *.log
+*.flt
+*.h5
 log*
 output*
 release

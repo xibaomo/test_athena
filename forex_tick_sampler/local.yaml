@@ -15,9 +15,6 @@ GENERAL:
     # Format of gauge file
     GAUGE_FILE_FORMAT: csv
 
-    # 1/0: turn on/off
-    ESTIMATE_ACCURACV: 1
-
     # Model selector, crossval idation is default
     ENABLE_MODEL_SELECTOR: true
 
@@ -107,7 +104,7 @@ MODEL_SELECTOR:
 ########################### App config starts here ###########################
 FTS: # Forex Tick Sampler
     TICK_FILE: EURUSD_201810010001_201810030127.csv
-    TAKE_PROFIT_POINT: 100 
-    STOP_LOSS_POINT: 100
+    TAKE_PROFIT_POINTS: 100 
+    STOP_LOSS_POINTS: 100
     FOREX_SYMBOL: EURUSD
 

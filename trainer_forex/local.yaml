@@ -75,7 +75,6 @@ MODEL_SELECTOR:
     # number of threads running in parallel
     N_JOBS: 8
 
-    SAVE_MODEL_PREFIX: "fx_rf_"
 ########################### Classifiers ###########################
     MODEL_1:
         #ENABLED: true
@@ -88,9 +87,9 @@ MODEL_SELECTOR:
     MODEL_3:
         ENABLED: true
         MODEL_NAME: RMF # Random forest
-        N_ESTIMATORS: 10,200,10  # min,max,num
+        N_ESTIMATORS: 10,210,20  # min,max,num
         CRITERION: [gini,entropy]
-        MIN_SAMPLES_SPLIT: 2,40,10
+        MIN_SAMPLES_SPLIT: 2,80,10
     MODEL_4:
         ENABLED: false
         MODEL_NAME: DNN
@@ -109,8 +108,8 @@ MODEL_SELECTOR:
 ########################### App config starts here ###########################
 FXT: # Forex trainer
    FEATURE_EXTRACTOR:
-       #TICK_FILE: EURUSD_sell.csv
-       TICK_FILE: EURUSD_buy.csv
+       TICK_FILE: EURUSD_sell.csv
+       #TICK_FILE: EURUSD_buy.csv
        TEST_SIZE: 500
        SAMPLE_RATE: 30 # sec
 
